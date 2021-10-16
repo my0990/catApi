@@ -41,9 +41,7 @@ function ClickIcon() {
     })
     return(
         <div>
-           
             <Wrapper>
-
                 <Icon style={props}/>
             </Wrapper>
         </div>

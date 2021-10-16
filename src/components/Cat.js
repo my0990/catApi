@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import './cat.css'
 import theme from '../style/theme.js';
 import ClickIcon from './clickIcon.js'
+import {animated,useSpring} from 'react-spring';
 
 const Container = styled.div`
     width: 100vw;
@@ -12,7 +13,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     @media screen and (max-width: ${theme.mobile}) {
-        height: 100vh;
+        height: 90vh;
         font-size: 2em;
     }
 `
@@ -43,6 +44,12 @@ function Cat(){
         if(isClicked===false){
         setIsClicked(true)}
     }
+    const props = useSpring({
+        from: {opacity: 0},
+        to: {opacity: 1}
+    })
+        
+    
     return(
         <Container>
             <Wrapper onClick={()=>{btnClicked()}}>
@@ -52,7 +59,7 @@ function Cat(){
                 </div>
             : null}
                
-                <img src={url} />
+                 <animated.img style={props} src={url} />
             </Wrapper>
             
         </Container>
